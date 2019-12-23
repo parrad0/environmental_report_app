@@ -19,14 +19,7 @@ import InputLabel from '@material-ui/core/InputLabel';
         //TODO logged in 
 if(true){return(
 <div className="nav">
-    <Button variant="contained" color="primary">
-      Hola Mundo!
-    </Button>
-   <InputLabel id="label">Pais</InputLabel>
-<Select labelId="label" id="select" value="20">
-  <MenuItem value="10">Ten</MenuItem>
-  <MenuItem value="20">Twenty</MenuItem>
-</Select>
+
 </div>
 );}else{return(
 <div className="nav">

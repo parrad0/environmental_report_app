@@ -2,34 +2,81 @@ import { Component } from "react";
 import Button from '@material-ui/core/Button';
 import React from "react";
 import gridViewController from "controller/gridViewController";
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import {gridViewDto, valueExample} from "./gridViewDto";
 
-class GridViewTsx extends Component<{},{grids : any}>{
+class GridViewTsx extends Component<{},gridViewDto>{
     controller : gridViewController;
     constructor(props : any){     
         super(props);
         this.controller=new gridViewController;
-        this.state={
-            grids:["a","b"],
-        }
+   this.state={
+       countries:1,
+       provinces:1,
+       types:1,
+   }
     }
 render(){
-    let response : any=[];
-    let grids=this.state.grids;
-    console.log(this.state.grids);
-    grids.map((element: React.ReactNode) => {
-    response.push(<div>{element}</div>);
-     })
+    let countries = this.getCountriesFilterTag();
+    console.log(countries);
+    let provinces = this.getProvinceFilterTag();
+    let type = this.getTypeFilterTag();
+
     return(
-        <div>
-        <Button variant="contained" onClick={()=>this.click()}>Filter</Button>
-    {response}
+        <div className="filterMenu">
+            <div className="filterTag">
+<InputLabel id="label">Age</InputLabel>
+<Select labelId="label" id="select" value={this.state.countries} onChange={(event)=>this.handleChangeCountry(event)}>
+{provinces.map((value, index) => {
+        return <MenuItem value={index}>{value}</MenuItem>
+      })}
+</Select>
+</div>
+
+<div className="filterTag">
+<InputLabel id="label">Age</InputLabel>
+<Select labelId="label" id="select" value={this.state.provinces} onChange={(event)=>this.handleChangeProvinces(event)}>
+  <MenuItem value="10">Ten</MenuItem>
+  <MenuItem value="20">Twenty</MenuItem>
+</Select>
+</div>
+
+<div className="filterTag">
+<InputLabel id="label">Age</InputLabel>
+<Select labelId="label" id="select" value={this.state.types} onChange={(event)=>this.handleChangeTypes(event)}>
+  <MenuItem value="10">Ten</MenuItem>
+  <MenuItem value="20">Twenty</MenuItem>
+</Select>
+</div>
         </div>
         
     );
 }
-click(){
-let response=this.controller.loadData();
-this.setState({grids: response});
+//set DropDowns
+ async getCountriesFilterTag() : Promise<valueExample>{
+    console.log("data");
+    return await this.controller.getCountriesFilterTagData();
 }
+getProvinceFilterTag(){
+    return ['','',''];
+}
+getTypeFilterTag(){
+    return [];
+}
+//dropdowns onchange
+handleChangeProvinces  (event: any)  {
+    console.log("inside the chnage");
+    this.setState({provinces: event.target.value});
+  }
+  handleChangeCountry  (event: any)  {
+    console.log("inside the chnage");
+    this.setState({countries: event.target.value});
+  }
+  handleChangeTypes  (event: any)  {
+    console.log("inside the chnage");
+    this.setState({types: event.target.value});
+  }
 }
 export default GridViewTsx;

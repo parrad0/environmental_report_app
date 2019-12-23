@@ -1,4 +1,14 @@
 .nav{
   background-color: blue;
   height: 100px;
+margin-bottom: 2em;
+}
+.filterMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.filterTag{
+  margin: auto;
 }
