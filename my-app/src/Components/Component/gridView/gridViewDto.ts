@@ -1,9 +1,8 @@
-export interface gridViewDto{
-countries: number,
-provinces: number,
-types: number,
-
+export interface gridViewDto {
+  countries: string[];
+  provinces: string[];
+  types: string[];
 }
-export interface valueExample{
-    value: string[], 
-    }
+export interface valueExample {
+  value: string[];
+}
