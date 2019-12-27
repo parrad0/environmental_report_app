@@ -12,7 +12,6 @@ import {
   Grid
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ShareIcon from "@material-ui/icons/Share";
 import gridViewController from "controller/gridViewController";
 import { cardDtoArgs, cardDtoProps } from "./card_dto";
