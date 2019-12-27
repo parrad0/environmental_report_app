@@ -14,11 +14,15 @@ import {
   Avatar,
   CardHeader,
   Card,
-  CardMedia
+  CardMedia,
+  Grid,
+  Box,
+  SnackbarContent,
+  Icon
 } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ShareIcon from "@material-ui/icons/Share";
+import CardComponent from "../card/card_component";
+import CloseIcon from "@material-ui/icons/Close";
+import Paper from "@material-ui/core/Paper";
 
 class GridViewTsx extends Component<{}, gridViewDto> {
   controller: gridViewController;
@@ -28,7 +32,10 @@ class GridViewTsx extends Component<{}, gridViewDto> {
     this.state = {
       countries: [],
       provinces: [],
-      types: []
+      types: [],
+      countryPosition: "0",
+      provincePosition: "0",
+      typePosition: "0"
     };
   }
   async componentDidMount() {
@@ -48,8 +55,8 @@ class GridViewTsx extends Component<{}, gridViewDto> {
             <InputLabel id="label">País</InputLabel>
             <Select
               labelId="label"
-              id="select"
-              value={this.state.countries}
+              id="select1"
+              value={this.state.countryPosition}
               onChange={(event: any) => this.handleChangeCountry(event)}
             >
               {this.state.countries.map((value, index) => {
@@ -62,9 +69,9 @@ class GridViewTsx extends Component<{}, gridViewDto> {
             <InputLabel id="label">Provincias</InputLabel>
             <Select
               labelId="label"
-              id="select"
-              value={this.state.countries}
-              onChange={(event: any) => this.handleChangeCountry(event)}
+              id="select2"
+              value={this.state.provincePosition}
+              onChange={(event: any) => this.handleChangeProvinces(event)}
             >
               {this.state.provinces.map((value, index) => {
                 return <MenuItem value={index}>{value}</MenuItem>;
@@ -76,47 +83,31 @@ class GridViewTsx extends Component<{}, gridViewDto> {
             <InputLabel id="label">Tipo</InputLabel>
             <Select
               labelId="label"
-              id="select"
-              value={this.state.countries}
-              onChange={(event: any) => this.handleChangeCountry(event)}
+              id="select3"
+              value={this.state.typePosition}
+              onChange={(event: any) => this.handleChangeTypes(event)}
             >
-              {this.state.countries.map((value, index) => {
+              {this.state.types.map((value, index) => {
                 return <MenuItem value={index}>{value}</MenuItem>;
               })}
             </Select>
           </div>
         </div>
-        <div>
-          <Card className={""}>
-            <CardHeader
-              avatar={<Avatar aria-label="recipe">R</Avatar>}
-              action={
-                <IconButton aria-label="settings">
-                  <MoreVertIcon />
-                </IconButton>
-              }
-              title="Shrimp and Chorizo Paella"
-              subheader="September 14, 2016"
-            />
-            <CardMedia image="" title="Paella dish" />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                This impressive paella is a perfect party dish and a fun meal to
-                cook together with your guests. Add 1 cup of frozen peas along
-                with the mussels, if you like.
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-              <IconButton aria-label="show more"></IconButton>
-            </CardActions>
-          </Card>
-        </div>
+        <Box className="GridContainer">
+          <Grid container spacing={5}>
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent text={"mi texto"} cod={2} />
+          </Grid>
+        </Box>
       </div>
     );
   }
@@ -127,16 +118,13 @@ class GridViewTsx extends Component<{}, gridViewDto> {
   }
   //dropdowns onchange
   handleChangeProvinces(event: any) {
-    console.log("inside the chnage");
-    this.setState({ provinces: event.target.value });
+    this.setState({ provincePosition: event.target.value });
   }
   handleChangeCountry(event: any) {
-    console.log("inside the chnage");
-    this.setState({ countries: event.target.value });
+    this.setState({ countryPosition: event.target.value });
   }
   handleChangeTypes(event: any) {
-    console.log("inside the chnage");
-    this.setState({ types: event.target.value });
+    this.setState({ typePosition: event.target.value });
   }
 }
 export default GridViewTsx;

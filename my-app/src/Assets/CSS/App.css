@@ -1,14 +1,47 @@
-.nav{
-  background-color: blue;
-  height: 100px;
-margin-bottom: 2em;
+.navBar {
+  margin-bottom: 1.5em;
 }
-.filterMenu{
+
+.filterMenu {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 2em;
 }
-.filterTag{
+.filterCard {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px !important;
+}
+.filterTag {
   margin: auto;
+}
+.GridContainer {
+  width: 90vw;
+  margin: auto;
+}
+.itemCard {
+  min-width: 200px;
+}
+.orange {
+  background-color: rgba(120, 245, 48, 0.705) !important;
+}
+.cardTag:hover {
+  cursor: pointer;
+}
+.media {
+  height: 0;
+  padding-top: 56.25%;
+}
+.contactICon {
+  margin-left: auto;
+}
+.contactICon :hover {
+  cursor: pointer;
+}
+.buttonLogin {
+  margin-right: 0.4em !important;
 }

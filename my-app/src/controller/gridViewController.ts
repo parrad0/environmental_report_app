@@ -18,11 +18,12 @@ class gridViewController {
   }
   async getFilterTagData(): Promise<gridViewDto> {
     let response: gridViewDto = {
-      countries: ["g", "f", "d", "s"],
-      provinces: [],
-      types: []
+      countries: ["España", "Inglaterra", "USA", "Turquia"],
+      provinces: ["Guadalajara", "Toledo", "Madrid"],
+      types: ["Incendio", "Vertidos", ""]
     };
     return response;
   }
+  async likeCardToUser(value?: number) {}
 }
 export default gridViewController;
