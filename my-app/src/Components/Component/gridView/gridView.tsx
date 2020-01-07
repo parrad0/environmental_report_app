@@ -18,8 +18,8 @@ class GridViewTsx extends Component<{},gridViewDto>{
        types:1,
    }
     }
-render(){
-    let countries = this.getCountriesFilterTag();
+   render(){
+    let countries =    n  this.getCountriesFilterTag();
     console.log(countries);
     let provinces = this.getProvinceFilterTag();
     let type = this.getTypeFilterTag();
@@ -29,7 +29,7 @@ render(){
             <div className="filterTag">
 <InputLabel id="label">Age</InputLabel>
 <Select labelId="label" id="select" value={this.state.countries} onChange={(event)=>this.handleChangeCountry(event)}>
-{provinces.map((value, index) => {
+{countries.value.map((value, index) => {
         return <MenuItem value={index}>{value}</MenuItem>
       })}
 </Select>
@@ -57,7 +57,7 @@ render(){
 //set DropDowns
  async getCountriesFilterTag() : Promise<valueExample>{
     console.log("data");
-    return await this.controller.getCountriesFilterTagData();
+    return await this.controller.getCountriesFilterTagData().then(response => response);
 }
 getProvinceFilterTag(){
     return ['','',''];
