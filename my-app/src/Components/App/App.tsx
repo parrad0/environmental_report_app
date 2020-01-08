@@ -1,11 +1,10 @@
-import "Components/app/node_modules/Assets/CSS/App.css";
 import Nav from "Components/navComponent/nav-component";
 import GridViewTsx from "../gridView/gridView";
-import LogInModal from "Components/loginModal/LogInModal";
 import { RouteComponentProps } from "react-router";
 import { Component } from "react";
 import React from "react";
-
+import LogInModal from "Components/loginModalView/loginModal";
+import FooterComponent from "Components/footerView/footer";
 class App extends Component<RouteComponentProps, {}> {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(props: any) {
@@ -17,6 +16,7 @@ class App extends Component<RouteComponentProps, {}> {
         <Nav />
         <GridViewTsx />
         <LogInModal />
+        <FooterComponent />
       </div>
     );
   }

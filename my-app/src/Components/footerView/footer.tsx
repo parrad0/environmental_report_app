@@ -1,7 +1,8 @@
 import { Component } from "react";
 import React from "react";
+import { RouteComponentProps, withRouter } from "react-router";
 
-class FooterComponent extends Component {
+class FooterComponent extends Component<RouteComponentProps> {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(props: any) {
     super(props);
@@ -10,4 +11,4 @@ class FooterComponent extends Component {
     return <footer></footer>;
   }
 }
-export default FooterComponent;
+export default withRouter(FooterComponent);
