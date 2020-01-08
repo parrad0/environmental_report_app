@@ -9,65 +9,50 @@ class FooterComponent extends Component<RouteComponentProps> {
   }
   render() {
     return (
-      <footer className="page-footer font-small blue pt-4">
-        <div className="container-fluid text-center text-md-left">
+      <footer className="page-footer">
+        <div className="container">
           <div className="row">
-            <div className="col-md-6 mt-md-0 mt-3">
-              <h5 className="text-uppercase">Footer Content</h5>
-              <p>
-                Here you can use rows and columns to organize your footer
+            <div className="col l6 s12">
+              <h5 className="white-text">Footer Content</h5>
+              <p className="grey-text text-lighten-4">
+                You can use rows and columns here to organize your footer
                 content.
               </p>
             </div>
-
-            <hr className="clearfix w-100 d-md-none pb-3"></hr>
-
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
-
-              <ul className="list-unstyled">
+            <div className="col l4 offset-l2 s12">
+              <h5 className="white-text">Links</h5>
+              <ul>
                 <li>
-                  <a href="#!">Link 1</a>
+                  <a className="grey-text text-lighten-3" href="#!">
+                    Link 1
+                  </a>
                 </li>
                 <li>
-                  <a href="#!">Link 2</a>
+                  <a className="grey-text text-lighten-3" href="#!">
+                    Link 2
+                  </a>
                 </li>
                 <li>
-                  <a href="#!">Link 3</a>
+                  <a className="grey-text text-lighten-3" href="#!">
+                    Link 3
+                  </a>
                 </li>
                 <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
-
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
+                  <a className="grey-text text-lighten-3" href="#!">
+                    Link 4
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
-        <div className="footer-copyright text-center py-3">
-          © 2020 Copyright:
-          <a href="https://mdbootstrap.com/education/bootstrap/">
-            {" "}
-            Environment.com
-          </a>
+        <div className="footer-copyright">
+          <div className="container">
+            © 2020 Copyright Text
+            <a className="grey-text text-lighten-4 right" href="#!">
+              More Links
+            </a>
+          </div>
         </div>
       </footer>
     );
