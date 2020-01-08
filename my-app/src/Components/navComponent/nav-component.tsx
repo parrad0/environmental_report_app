@@ -49,19 +49,19 @@ class Nav extends Component<
               </Icon>
             ) : (
               <div className="contactICon">
-                <Button
-                  variant="outlined"
-                  size="small"
+                <span
+                  // variant="outlined"
+                  // size="small"
                   color="secondary"
                   className="buttonLogin"
                   onClick={() => this.goLogIn()}
                 >
                   Log in
-                </Button>
+                </span>
                 <Button
                   variant="contained"
                   size="small"
-                  color="primary"
+                  color="secondary"
                   onClick={() => this.goRegister()}
                 >
                   Register

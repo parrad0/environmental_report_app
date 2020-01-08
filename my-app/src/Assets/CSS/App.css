@@ -1,6 +1,19 @@
+/*#region nav*/
 .navBar {
   margin-bottom: 1.5em;
 }
+.contactICon {
+  margin-left: auto;
+}
+.contactICon :hover {
+  cursor: pointer;
+}
+.buttonLogin {
+  margin-right: 1em !important;
+  border-radius: 20px;
+}
+/*#endregion nav*/
+/*#region gridview*/
 
 .filterMenu {
   display: flex;
@@ -20,9 +33,13 @@
   margin: auto;
 }
 .GridContainer {
-  width: 90vw;
+  width: 70vw;
   margin: auto;
 }
+/*#endregion gridview*/
+/*#endregion mediaquery*/
+/*#region card*/
+
 .itemCard {
   min-width: 200px;
 }
@@ -36,26 +53,22 @@
   height: 0;
   padding-top: 56.25%;
 }
-.contactICon {
-  margin-left: auto;
-}
-.contactICon :hover {
-  cursor: pointer;
-}
-.buttonLogin {
-  margin-right: 0.4em !important;
-}
-.modalLogInBackGround {
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.438);
-}
+/*#endregion card*/
+/*#region footer*/
 footer {
   margin-top: 2em !important;
   width: 100%;
   height: 350px;
   background-color: #3f51b5;
 }
+/*#endregion footer*/
+/*#region loginmodal*/
+.modalLogInBackGround {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.438);
+}
+/*#endregion loginmodal*/
 /*#region Login View*/
 .paper {
   margin-top: 8rem;
@@ -78,6 +91,7 @@ footer {
   cursor: pointer !important;
 }
 /*#endregion Loginview*/
+/*#region mediaquery*/
 @media (max-width: 1200px) {
   .filterCard {
     width: 300px !important;
@@ -88,3 +102,4 @@ footer {
     width: 150px !important;
   }
 }
+/*#endregion mediaquery*/
