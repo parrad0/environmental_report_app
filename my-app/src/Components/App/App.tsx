@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "Assets/CSS/App.css";
-import Nav from "Components/nav_component/nav-component";
-import GridViewTsx from "../gridView/gridView";
-import LogInModal from "Components/LogInModal/LogInModal";
+import FooterComponent from "Components/footer/footer";
+import Nav from "Components/navComponent/nav-component";
+import GridViewTsx from "Components/gridView/gridView";
+import LogInModal from "Components/loginModal/loginModal";
 
 class App extends Component {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
@@ -15,6 +16,7 @@ class App extends Component {
         <Nav />
         <GridViewTsx />
         <LogInModal />
+        <FooterComponent />
       </div>
     );
   }

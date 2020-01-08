@@ -1,28 +1,9 @@
-import { Component } from "react";
-import Button from "@material-ui/core/Button";
-import React from "react";
 import gridViewController from "controller/gridViewController";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
-import { gridViewDto, valueExample } from "./gridViewDto";
-import {
-  CardContent,
-  Typography,
-  CardActions,
-  IconButton,
-  Avatar,
-  CardHeader,
-  Card,
-  CardMedia,
-  Grid,
-  Box,
-  SnackbarContent,
-  Icon
-} from "@material-ui/core";
+import { gridViewDto } from "./gridViewDto";
 import CardComponent from "../card/card_component";
-import CloseIcon from "@material-ui/icons/Close";
-import Paper from "@material-ui/core/Paper";
+import { Component } from "react";
+import React from "react";
+import { MenuItem, InputLabel, Select, Box, Grid } from "@material-ui/core";
 
 class GridViewTsx extends Component<{}, gridViewDto> {
   controller: gridViewController;
