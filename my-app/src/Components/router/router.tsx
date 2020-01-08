@@ -1,10 +1,10 @@
 import { Component } from "react";
 import React from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import App from "Components/app/App";
 import LoginView from "Components/loginView/loginView";
 import RegisterView from "Components/registerView/registerView";
 import ProfileView from "Components/profileView/profileView";
+import App from "Components/App/App";
 export default class RouterViewsPath extends Component {
   render() {
     return (
