@@ -56,3 +56,35 @@ footer {
   height: 350px;
   background-color: #3f51b5;
 }
+/*#region Login View*/
+.paper {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar {
+  margin: 1rem;
+  background-color: red;
+}
+.form {
+  width: 100%;
+  margin-top: 3rem;
+}
+.submit {
+  margin: auto;
+}
+.home:hover {
+  cursor: pointer !important;
+}
+/*#endregion Loginview*/
+@media (max-width: 1200px) {
+  .filterCard {
+    width: 300px !important;
+  }
+}
+@media (max-width: 600px) {
+  .filterCard {
+    width: 150px !important;
+  }
+}

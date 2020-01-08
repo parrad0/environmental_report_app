@@ -11,11 +11,16 @@ import {
   Typography,
   IconButton,
   AppBar,
-  Toolbar
+  Toolbar,
+  Link
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import { RouteComponentProps, withRouter } from "react-router";
 
-class Nav extends Component<{}, { loged: boolean; params: string[] }> {
+class Nav extends Component<
+  RouteComponentProps,
+  { loged: boolean; params: string[] }
+> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -29,9 +34,15 @@ class Nav extends Component<{}, { loged: boolean; params: string[] }> {
       return (
         <AppBar position="static" className="navBar">
           <Toolbar variant="dense">
-            <Typography variant="h6" color="inherit">
+            <Typography
+              variant="h6"
+              color="inherit"
+              className="home"
+              onClick={() => this.goHome()}
+            >
               Environment
             </Typography>
+
             {this.state.loged ? (
               <Icon className="contactICon">
                 <PersonIcon />
@@ -43,10 +54,16 @@ class Nav extends Component<{}, { loged: boolean; params: string[] }> {
                   size="small"
                   color="secondary"
                   className="buttonLogin"
+                  onClick={() => this.goLogIn()}
                 >
                   Log in
                 </Button>
-                <Button variant="contained" size="small" color="primary">
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                  onClick={() => this.goRegister()}
+                >
                   Register
                 </Button>
               </div>
@@ -62,5 +79,14 @@ class Nav extends Component<{}, { loged: boolean; params: string[] }> {
       );
     }
   }
+  goHome() {
+    this.props.history.push("/Home");
+  }
+  goLogIn() {
+    this.props.history.push("/Login");
+  }
+  goRegister() {
+    this.props.history.push("/Register");
+  }
 }
-export default Nav;
+export default withRouter(Nav);

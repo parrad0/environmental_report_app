@@ -15,7 +15,7 @@ export default class RouterViewsPath extends Component {
           <Route exact path="/Register" component={RegisterView}></Route>
           <Route exact path="/Profile" component={ProfileView}></Route>
           <Route exact path="/Card" component={App}></Route>
-          <Redirect from="/" to="/Home" />
+          <Redirect from="/" to="/Login" />
         </BrowserRouter>
       </React.Fragment>
     );
