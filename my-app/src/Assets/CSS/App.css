@@ -29,6 +29,10 @@
   margin-right: auto;
   width: 300px !important;
 }
+.filterCard:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 15px rgba(0, 0, 255, 0.2);
+}
 .filterTag {
   margin: auto;
 }

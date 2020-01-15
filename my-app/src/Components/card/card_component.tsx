@@ -14,15 +14,18 @@ import {
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import gridViewController from "controller/gridViewController";
-import { cardDtoArgs, cardDtoProps } from "./card_dto";
+import { cardDtoArgs } from "./card_dto";
+import { RouteComponentProps, withRouter } from "react-router";
 
-class CardComponent extends Component<cardDtoProps, cardDtoArgs> {
+class CardComponent extends Component<RouteComponentProps, cardDtoArgs> {
   _controller: gridViewController;
   constructor(props: any) {
     super(props);
     this.state = {
       color: "default",
-      cod: this.props.cod
+      cod: 22,
+      name: "",
+      text: "incidencia"
     };
     this._controller = new gridViewController();
   }
@@ -45,7 +48,7 @@ class CardComponent extends Component<cardDtoProps, cardDtoArgs> {
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {this.props.text + this.state.cod}
+            {this.state.text + this.state.cod}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -75,6 +78,11 @@ class CardComponent extends Component<cardDtoProps, cardDtoArgs> {
   shareClick() {
     alert("copy");
   }
-  cardClicked() {}
+  cardClicked() {
+    this.props.history.push({
+      pathname: "/CardView",
+      state: { name: "f" }
+    });
+  }
 }
-export default CardComponent;
+export default withRouter(CardComponent);

@@ -76,17 +76,13 @@ class GridViewTsx extends Component<{}, gridViewDto> {
         </div>
         <Box className="GridContainer">
           <Grid container spacing={5}>
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
+            <CardComponent />
           </Grid>
         </Box>
       </div>
