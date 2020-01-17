@@ -17,21 +17,27 @@ import gridViewController from "controller/gridViewController";
 import { cardDtoArgs } from "./card_dto";
 import { RouteComponentProps, withRouter } from "react-router";
 
-class CardComponent extends Component<RouteComponentProps, cardDtoArgs> {
+class CardComponent extends Component<
+  { onClick(a: any, b: any): any; cod: number; text: string },
+  cardDtoArgs
+> {
   _controller: gridViewController;
   constructor(props: any) {
     super(props);
     this.state = {
       color: "default",
-      cod: 22,
+      cod: this.props.cod,
       name: "",
-      text: "incidencia"
+      text: this.props.text
     };
     this._controller = new gridViewController();
   }
   render() {
     return (
-      <Card onClick={() => this.cardClicked()} className="filterCard">
+      <Card
+        onClick={() => this.props.onClick(this.state.text, this.state.cod)}
+        className="filterCard"
+      >
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className="orange">
@@ -78,11 +84,6 @@ class CardComponent extends Component<RouteComponentProps, cardDtoArgs> {
   shareClick() {
     alert("copy");
   }
-  cardClicked() {
-    this.props.history.push({
-      pathname: "/CardView",
-      state: { name: "f" }
-    });
-  }
+  cardClicked() {}
 }
-export default withRouter(CardComponent);
+export default CardComponent;

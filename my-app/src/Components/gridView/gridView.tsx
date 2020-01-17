@@ -4,6 +4,9 @@ import CardComponent from "../card/card_component";
 import { Component } from "react";
 import React from "react";
 import { MenuItem, InputLabel, Select, Box, Grid } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import store from "redux/store";
+import { changeName } from "redux/actions/actions";
 
 class GridViewTsx extends Component<{}, gridViewDto> {
   controller: gridViewController;
@@ -76,13 +79,12 @@ class GridViewTsx extends Component<{}, gridViewDto> {
         </div>
         <Box className="GridContainer">
           <Grid container spacing={5}>
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
-            <CardComponent />
+            <CardComponent
+              // eslint-disable-next-line no-restricted-globals
+              onClick={(a, b) => this.handleClickCard(a, b)}
+              cod={2}
+              text={"hi"}
+            />
           </Grid>
         </Box>
       </div>
@@ -102,6 +104,13 @@ class GridViewTsx extends Component<{}, gridViewDto> {
   }
   handleChangeTypes(event: any) {
     this.setState({ typePosition: event.target.value });
+  }
+  handleClickRedux() {
+    var tech = { text: "iniciado", cod: 33 };
+    store.dispatch(changeName(tech.text));
+  }
+  handleClickCard(a: any, b: any) {
+    console.log(a);
   }
 }
 export default GridViewTsx;
