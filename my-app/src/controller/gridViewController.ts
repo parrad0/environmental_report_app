@@ -4,7 +4,12 @@ import getCardsUseCase from "Use-case/get-cards-use-case/get-cards-use-case";
 import { gridViewDto } from "Components/gridView/gridViewDto";
 
 class gridViewController {
-  async loadData(): Promise<any> {
+  async loadData(
+    // TODO add filter funtion
+    country: string,
+    province: string,
+    type: string
+  ): Promise<any> {
     try {
       let provider: IgetCards = dataProviderGenerator.getCardsDatarpovider();
       let usecase = new getCardsUseCase(provider);

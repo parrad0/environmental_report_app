@@ -1,5 +1,3 @@
-import { Component } from "react";
-import React from "react";
 import {
   CardHeader,
   IconButton,
@@ -9,52 +7,52 @@ import {
   CardActions,
   Avatar,
   CardMedia,
-  Grid
+  Box
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import gridViewController from "controller/gridViewController";
-import { cardDtoArgs } from "./card_dto";
-import { RouteComponentProps, withRouter } from "react-router";
+import { cardDtoArgs, cardDtoProps } from "./card_dto";
+import sliceTextWithDots from "Components/format/text-helper";
+import { borders } from "@material-ui/system";
+import React, { Component } from "react";
 
-class CardComponent extends Component<
-  { onClick(a: any, b: any): any; cod: number; text: string },
-  cardDtoArgs
-> {
+class CardComponent extends Component<cardDtoProps, cardDtoArgs> {
   _controller: gridViewController;
   constructor(props: any) {
     super(props);
     this.state = {
       color: "default",
       cod: this.props.cod,
-      name: "",
-      text: this.props.text
+      title: this.props.title,
+      text: this.props.text,
+      img: this.props.img,
+      avatar: this.props.avatar,
+      date: this.props.date
     };
     this._controller = new gridViewController();
   }
   render() {
     return (
-      <Card
-        onClick={() => this.props.onClick(this.state.text, this.state.cod)}
-        className="filterCard"
-      >
+      <Box borderRadius="5%" className="filterCard">
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className="orange">
-              R
+              {sliceTextWithDots(this.state.avatar, 1)}
             </Avatar>
           }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          title={sliceTextWithDots(this.state.title, 20, true)}
+          subheader={this.state.date}
         />
         <CardMedia
+          onClick={() => this.props.onClick(this.state.text, this.state.cod)}
           className="media"
           image="https://upload.wikimedia.org/wikipedia/commons/3/3a/Bonfire_in_Kladow_17.04.2011_20-41-54.JPG"
           title="Paella dish"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {this.state.text + this.state.cod}
+            {sliceTextWithDots(this.state.text, 25, true)}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -70,7 +68,7 @@ class CardComponent extends Component<
           </IconButton>
           <IconButton aria-label="show more"></IconButton>
         </CardActions>
-      </Card>
+      </Box>
     );
   }
   async likeClick() {

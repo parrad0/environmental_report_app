@@ -28,10 +28,11 @@
   margin-left: auto;
   margin-right: auto;
   width: 300px !important;
+  background-color: white;
 }
 .filterCard:hover {
   cursor: pointer;
-  box-shadow: 1px 1px 15px rgba(0, 0, 255, 0.2);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
 }
 .filterTag {
   margin: auto;
@@ -106,4 +107,10 @@ footer {
     width: 150px !important;
   }
 }
+
 /*#endregion mediaquery*/
+/*#region Global*/
+body {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+/*#endregion Global*/
