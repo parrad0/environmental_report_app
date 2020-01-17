@@ -10,7 +10,7 @@ export interface cardDtoArgs {
 export interface cardDtoProps {
   text: string;
   cod: number;
-  onClick(a: any, b: any): any;
+  onClick(a: any): any;
   img: string;
   title: string;
   avatar: string;

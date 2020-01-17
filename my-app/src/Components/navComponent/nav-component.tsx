@@ -32,7 +32,7 @@ class Nav extends Component<
     //TODO logged in
     if (true) {
       return (
-        <AppBar className="navBar" color="primary">
+        <AppBar className="navBar" position="static" color="primary">
           <Toolbar variant="dense">
             <Typography
               variant="h6"

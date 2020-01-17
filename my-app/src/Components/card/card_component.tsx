@@ -35,17 +35,8 @@ class CardComponent extends Component<cardDtoProps, cardDtoArgs> {
   render() {
     return (
       <Box borderRadius="5%" className="filterCard">
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className="orange">
-              {sliceTextWithDots(this.state.avatar, 1)}
-            </Avatar>
-          }
-          title={sliceTextWithDots(this.state.title, 20, true)}
-          subheader={this.state.date}
-        />
         <CardMedia
-          onClick={() => this.props.onClick(this.state.text, this.state.cod)}
+          onClick={() => this.props.onClick(this.state)}
           className="media"
           image="https://upload.wikimedia.org/wikipedia/commons/3/3a/Bonfire_in_Kladow_17.04.2011_20-41-54.JPG"
           title="Paella dish"
