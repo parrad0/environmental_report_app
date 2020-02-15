@@ -11,17 +11,20 @@ import {
   FormControlLabel,
   Grid,
   Link,
-  makeStyles
+  makeStyles,
+  Snackbar,
+  IconButton
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { Component } from "react";
 import React from "react";
 import Nav from "Components/navComponent/nav-component";
+import CloseIcon from "@material-ui/icons/Close";
 
-class LoginView extends Component<RouteComponentProps, {}> {
+class LoginView extends Component<RouteComponentProps, { open: boolean }> {
   constructor(props: any) {
     super(props);
-    this.state = {};
+    this.state = { open: false };
   }
 
   render() {
@@ -35,7 +38,11 @@ class LoginView extends Component<RouteComponentProps, {}> {
             <Avatar className={"avatar"}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography
+              component="h1"
+              variant="h5"
+              onClick={() => this.openSnack()}
+            >
               Sign in
             </Typography>
             <form className={"form"} noValidate>
@@ -66,11 +73,12 @@ class LoginView extends Component<RouteComponentProps, {}> {
                 label="Remember me"
               />
               <Button
-                type="submit"
+                type="button"
                 fullWidth
                 variant="contained"
                 color="primary"
                 className={"submit"}
+                onClick={() => this.openSnack()}
               >
                 Sign In
               </Button>
@@ -99,8 +107,41 @@ class LoginView extends Component<RouteComponentProps, {}> {
             </Typography>
           </Box>
         </Container>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left"
+          }}
+          open={this.state.open}
+          autoHideDuration={6000}
+          onClose={() => {}}
+          message="Note archived"
+          action={
+            <React.Fragment>
+              <Button color="secondary" size="small" onClick={() => {}}>
+                UNDO
+              </Button>
+              <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={() => {}}
+              >
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
       </Box>
     );
+  }
+  handleClick() {
+    this.state.open
+      ? this.setState({ open: false })
+      : this.setState({ open: true });
+  }
+  openSnack() {
+    this.setState({ open: true });
   }
 }
 export default LoginView;

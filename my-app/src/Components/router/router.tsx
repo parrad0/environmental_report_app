@@ -5,6 +5,7 @@ import LoginView from "Components/loginView/loginView";
 import RegisterView from "Components/registerView/registerView";
 import ProfileView from "Components/profileView/profileView";
 import App from "Components/App/App";
+import CardView from "Components/cardView/cardView";
 export default class RouterViewsPath extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export default class RouterViewsPath extends Component {
           <Route exact path="/Login" component={LoginView}></Route>
           <Route exact path="/Register" component={RegisterView}></Route>
           <Route exact path="/Profile" component={ProfileView}></Route>
-          <Route exact path="/Card" component={App}></Route>
+          <Route exact path="/CardView" component={CardView}></Route>
           <Redirect from="/" to="/Login" />
         </BrowserRouter>
       </React.Fragment>

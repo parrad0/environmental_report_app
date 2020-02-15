@@ -23,18 +23,27 @@
   margin-bottom: 2em;
 }
 .filterCard {
-  margin-bottom: 1em;
-  margin-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px !important;
+  height: 420px;
+  width: 220px !important;
+  background-color: white;
+  /* flex: 0 0 33.3333%; */
+  margin: 0 0 10px 10px;
+  position: relative;
+  overflow: hidden;
+}
+.filterCard:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
 }
 .filterTag {
   margin: auto;
 }
 .GridContainer {
-  width: 70vw;
+  max-width: 690px;
   margin: auto;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  display: flex;
 }
 /*#endregion gridview*/
 /*#endregion mediaquery*/
@@ -50,7 +59,7 @@
   cursor: pointer;
 }
 .media {
-  height: 0;
+  height: 90px !important;
   padding-top: 56.25%;
 }
 /*#endregion card*/
@@ -94,12 +103,32 @@ footer {
 /*#region mediaquery*/
 @media (max-width: 1200px) {
   .filterCard {
-    width: 300px !important;
+    width: 200px !important;
   }
 }
 @media (max-width: 600px) {
   .filterCard {
-    width: 150px !important;
+    width: 200px !important;
   }
 }
+
 /*#endregion mediaquery*/
+/*#region Global*/
+body {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+/*#endregion Global*/
+/*#region cardView*/
+.cardViewMedia {
+  width: calc(100% - 12px) !important;
+  height: 400px;
+  background-size: initial !important;
+  margin: auto;
+}
+.cardViewCard {
+  margin: auto;
+  width: 60%;
+  height: auto;
+  background-color: whitesmoke;
+}
+/*#endregion cardView*/

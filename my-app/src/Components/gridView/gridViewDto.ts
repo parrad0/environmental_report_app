@@ -1,3 +1,5 @@
+import cardDto from "entities/card";
+
 export interface gridViewDto {
   countries: string[];
   provinces: string[];
@@ -5,6 +7,7 @@ export interface gridViewDto {
   countryPosition?: string;
   provincePosition?: string;
   typePosition?: string;
+  cards?: cardDto[];
 }
 export interface valueExample {
   value: string[];

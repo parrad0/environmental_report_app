@@ -4,8 +4,12 @@ import CardComponent from "../card/card_component";
 import { Component } from "react";
 import React from "react";
 import { MenuItem, InputLabel, Select, Box, Grid } from "@material-ui/core";
+import store from "redux/store";
+import { changeName } from "redux/actions/actions";
+import cardDto from "entities/card";
+import { RouteComponentProps, withRouter } from "react-router";
 
-class GridViewTsx extends Component<{}, gridViewDto> {
+class GridViewTsx extends Component<RouteComponentProps, gridViewDto> {
   controller: gridViewController;
   constructor(props: any) {
     super(props);
@@ -16,19 +20,21 @@ class GridViewTsx extends Component<{}, gridViewDto> {
       types: [],
       countryPosition: "0",
       provincePosition: "0",
-      typePosition: "0"
+      typePosition: "0",
+      cards: []
     };
   }
   async componentDidMount() {
     let filterdata = await this.getFilterTagData();
-
     this.setState({
       countries: filterdata.countries,
       provinces: filterdata.provinces,
-      types: filterdata.types
+      types: filterdata.types,
+      cards: await this.getCardsFilterSearch("", "", "")
     });
   }
   render() {
+    let localCards = this.state.cards ?? [];
     return (
       <div>
         <div className="filterMenu">
@@ -75,19 +81,17 @@ class GridViewTsx extends Component<{}, gridViewDto> {
           </div>
         </div>
         <Box className="GridContainer">
-          <Grid container spacing={5}>
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-            <CardComponent text={"mi texto"} cod={2} />
-          </Grid>
+          {localCards.map(o => (
+            <CardComponent
+              onClick={a => this.handleClickCard(a)}
+              cod={o.cod}
+              text={o.text}
+              img={o.img}
+              title={o.title}
+              avatar={o.avatar}
+              date={o.date}
+            />
+          ))}
         </Box>
       </div>
     );
@@ -96,6 +100,14 @@ class GridViewTsx extends Component<{}, gridViewDto> {
   async getFilterTagData(): Promise<gridViewDto> {
     console.log("data");
     return await this.controller.getFilterTagData();
+  }
+  async getCardsFilterSearch(
+    country: string,
+    province: string,
+    type: string
+  ): Promise<cardDto[]> {
+    console.log("data");
+    return await this.controller.loadData(country, province, type);
   }
   //dropdowns onchange
   handleChangeProvinces(event: any) {
@@ -107,5 +119,20 @@ class GridViewTsx extends Component<{}, gridViewDto> {
   handleChangeTypes(event: any) {
     this.setState({ typePosition: event.target.value });
   }
+  handleClickRedux() {
+    var tech = { text: "iniciado", cod: 33 };
+    store.dispatch(changeName(tech.text));
+  }
+  handleClickCard(a: any) {
+    this.props.history.push({
+      pathname: "CardView",
+      state: {
+        a
+      }
+    });
+  }
+  getFilterState(): { country: string; province: string; type: string } {
+    return { country: "", province: "", type: "" };
+  }
 }
-export default GridViewTsx;
+export default withRouter(GridViewTsx);
